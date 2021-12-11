@@ -1,0 +1,11 @@
+
+{
+  "cliente": {
+    "nome": "Gisiona Costa",
+    "cpf": "02304405411",
+    "idade": 14,
+    "uf": "SP",
+    "data_nascimento":"20-11-2021",
+    "renda_mensal": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "numero_solicitacao": "b4b0effa-2bb0-4521-a4f5-a48f05aed156",
+  "data_solicitacao": "2021-11-27T18:01:40.554",
+  "cliente": {
+    "nome": "Gisiona Costa",
+    "cpf": "02304405411",
+    "uf": "SP",
+    "renda_mensal": 1.0,
+    "data_nascimento": "20-11-2021",
+    "idade": 14
+  },
+  "produtos_emprestimo_disponivel": [
+    {
+      "tipo_emprestimo": "EMPRESTIMO_PESSOAL",
+      "taxa": 4.0
+    }
+  ]
+}

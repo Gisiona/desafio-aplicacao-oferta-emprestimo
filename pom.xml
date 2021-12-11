@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<rest.assured.version>4.4.0</rest.assured.version>
+		<rest.assured.json-schema-validator.version>3.0.0</rest.assured.json-schema-validator.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,6 +39,20 @@
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>spring-mock-mvc</artifactId>
+			<version>${rest.assured.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>${rest.assured.json-schema-validator.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -19,6 +19,6 @@ public class EmprestimoResponseDto {
     @JsonProperty("cliente")
     ClienteDto cliente;
 
-    @JsonProperty("produtos_emprestimo")
+    @JsonProperty("produtos_emprestimo_disponivel")
     List<ProdutoEmprestimoDto> emprestimos;
 }
