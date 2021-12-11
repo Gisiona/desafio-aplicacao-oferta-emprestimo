@@ -62,15 +62,20 @@ class EmprestimoControllerTest {
     }
 
     private EmprestimoRequestDto getEmprestimoRequestDto() {
+        ClienteDto clienteDto = getClienteDto();
+
+        EmprestimoRequestDto dto = new EmprestimoRequestDto();
+        dto.setCliente(clienteDto);
+        return dto;
+    }
+
+    private ClienteDto getClienteDto() {
         ClienteDto clienteDto = new ClienteDto();
         clienteDto.setCpf("1234");
         clienteDto.setIdade(19);
         clienteDto.setNome("Teste de Unidade");
         clienteDto.setUf("BA");
         clienteDto.setValorRenda(3000);
-
-        EmprestimoRequestDto dto = new EmprestimoRequestDto();
-        dto.setCliente(clienteDto);
-        return dto;
+        return clienteDto;
     }
 }
