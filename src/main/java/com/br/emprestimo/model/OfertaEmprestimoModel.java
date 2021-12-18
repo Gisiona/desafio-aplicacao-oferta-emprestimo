@@ -4,10 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data @Builder
-public class EmprestimoModel {
-    private TipoEmprestimo tipoEmprestimo;
+public class OfertaEmprestimoModel {
+    private TipoEmprestimoModel tipoEmprestimo;
     private TaxaEmprestimoModel taxaJuros;
-    private ClienteModel cliente;
-    private ParametroEmprestimoModel parametroEmprestimoModel;
-    private SimulacaoModel simulacaoModel;
+    private ClienteEmprestimoModel cliente;
 }

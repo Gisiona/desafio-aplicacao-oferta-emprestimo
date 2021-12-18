@@ -30,8 +30,4 @@ public class ClienteDto {
     @NotNull(message = "Data de nascimento é obrigatório.")
     @JsonProperty("data_nascimento")
     LocalDate dataNascimento;
-
-    @Min(value = 18, message = "Idade mínima deve ser maior ou igual 18 anos.")
-    @JsonProperty("idade")
-    int idade;
 }

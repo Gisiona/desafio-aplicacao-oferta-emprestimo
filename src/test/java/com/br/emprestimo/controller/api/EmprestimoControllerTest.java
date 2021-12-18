@@ -158,6 +158,9 @@ class EmprestimoControllerTest {
                 .andExpect(MockMvcResultMatchers.header().exists("Location"))
                 .andExpect(MockMvcResultMatchers.header().string("Location", Matchers.containsString(BASE_URL + BASE_PATH_OFERTA + "/0")));
 
+        //Mockito.verify(service, Mockito.times(1)).produtoEmprestimoDisponivel(clienteEmprestimoModel);
+        //Mockito.verify(emprestimoMapper, Mockito.times(1)).toEmprestimoResponseDto(Arrays.asList(produtoEmprestimoDisponivel), getClienteDto());
+
         log.info("Response: {}", response);
     }
 

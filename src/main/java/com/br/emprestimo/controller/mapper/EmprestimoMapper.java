@@ -3,7 +3,7 @@ package com.br.emprestimo.controller.mapper;
 import com.br.emprestimo.controller.dto.ClienteDto;
 import com.br.emprestimo.controller.dto.EmprestimoResponseDto;
 import com.br.emprestimo.controller.dto.ProdutoEmprestimoDto;
-import com.br.emprestimo.model.EmprestimoModel;
+import com.br.emprestimo.model.OfertaEmprestimoModel;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @Configuration
 public class EmprestimoMapper {
-    public EmprestimoResponseDto toEmprestimoResponseDto(List<EmprestimoModel> emprestimoModels, ClienteDto clienteRequestDto) {
+    public EmprestimoResponseDto toEmprestimoResponseDto(List<OfertaEmprestimoModel> emprestimoModels, ClienteDto clienteRequestDto) {
         return EmprestimoResponseDto
                 .builder()
                 .codigoSolicitacao(UUID.randomUUID())
@@ -23,7 +23,7 @@ public class EmprestimoMapper {
                 .build();
     }
 
-    public ProdutoEmprestimoDto toProdutoEmprestimoDto(EmprestimoModel emprestimoModel) {
+    public ProdutoEmprestimoDto toProdutoEmprestimoDto(OfertaEmprestimoModel emprestimoModel) {
         return ProdutoEmprestimoDto
                 .builder()
                 .tipoEmprestimo(emprestimoModel.getTipoEmprestimo().toString())
@@ -31,10 +31,10 @@ public class EmprestimoMapper {
                 .build();
     }
 
-    public List<ProdutoEmprestimoDto> toProdutoEmprestimoDto(List<EmprestimoModel> emprestimoModels) {
+    public List<ProdutoEmprestimoDto> toProdutoEmprestimoDto(List<OfertaEmprestimoModel> emprestimoModels) {
         List<ProdutoEmprestimoDto> produtoEmprestimoDtos = new ArrayList<>();
 
-        for (EmprestimoModel emprestimoModel : emprestimoModels) {
+        for (OfertaEmprestimoModel emprestimoModel : emprestimoModels) {
                 produtoEmprestimoDtos.add(toProdutoEmprestimoDto(emprestimoModel));
         }
         return produtoEmprestimoDtos;

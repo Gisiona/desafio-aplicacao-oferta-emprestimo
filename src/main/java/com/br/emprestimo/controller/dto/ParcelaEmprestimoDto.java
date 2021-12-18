@@ -1,2 +1,9 @@
-package com.br.emprestimo.controller.dto;public class ParcelaEmprestimoDto {
+package com.br.emprestimo.controller.dto;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class ParcelaEmprestimoDto {
 }

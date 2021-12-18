@@ -1,6 +1,6 @@
 package com.br.emprestimo.model;
 
-public enum TipoEmprestimo {
+public enum TipoEmprestimoModel {
     EMPRESTIMO_PESSOAL,
     EMPRESTIMO_GARANTIA,
     EMPRESTIMO_CONSIGNADO

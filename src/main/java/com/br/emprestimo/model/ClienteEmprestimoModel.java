@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Getter @Setter @Data @Builder
-public class ClienteModel {
+public class ClienteEmprestimoModel {
     String nome;
     String cpf;
     String uf;

@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @Getter
 @RequiredArgsConstructor
-public class EmprestimoRequestDto {
+public class SolicitacaoEmprestimoRequestDto {
 
     @JsonProperty("cliente")
     private ClienteDto cliente;
