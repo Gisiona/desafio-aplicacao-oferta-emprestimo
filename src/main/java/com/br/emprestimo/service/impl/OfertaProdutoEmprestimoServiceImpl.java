@@ -2,7 +2,7 @@ package com.br.emprestimo.service.impl;
 
 import com.br.emprestimo.model.ClienteModel;
 import com.br.emprestimo.model.EmprestimoModel;
-import com.br.emprestimo.service.EmprestimoService;
+import com.br.emprestimo.service.OfertaProdutoEmprestimoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,17 +13,17 @@ import java.util.Optional;
 
 @Slf4j
 @Service
-public class ProdutoEmprestimoService {
-    private List<EmprestimoService> emprestimoServices;
+public class ProdutoEmprestimoServiceImpl {
+    private List<OfertaProdutoEmprestimoService> emprestimoServices;
 
     @Autowired
-    public ProdutoEmprestimoService(List<EmprestimoService> emprestimoServices) {
+    public ProdutoEmprestimoServiceImpl(List<OfertaProdutoEmprestimoService> emprestimoServices) {
         this.emprestimoServices = emprestimoServices;
     }
 
     public List<EmprestimoModel> produtoEmprestimoDisponivel(ClienteModel clienteModel) {
         List<EmprestimoModel> emprestimoProdutos = new ArrayList();
-        for (EmprestimoService emprestimo: emprestimoServices) {
+        for (OfertaProdutoEmprestimoService emprestimo: emprestimoServices) {
             log.info("Implementação EmprestimoService: {}", emprestimo);
             Optional<EmprestimoModel> model = emprestimo.precessar(clienteModel);
             if(model.isPresent()) {

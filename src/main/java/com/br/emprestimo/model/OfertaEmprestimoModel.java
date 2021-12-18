@@ -8,4 +8,6 @@ public class EmprestimoModel {
     private TipoEmprestimo tipoEmprestimo;
     private TaxaEmprestimoModel taxaJuros;
     private ClienteModel cliente;
+    private ParametroEmprestimoModel parametroEmprestimoModel;
+    private SimulacaoModel simulacaoModel;
 }
