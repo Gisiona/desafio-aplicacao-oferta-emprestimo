@@ -13,19 +13,20 @@ import java.util.UUID;
 
 @Configuration
 public class EmprestimoMapper {
-    public EmprestimoResponseDto toEmprestimoResponseDto(List<OfertaEmprestimoModel> emprestimoModels, ClienteDto clienteRequestDto) {
+    public EmprestimoResponseDto toEmprestimoResponseDto(List<OfertaEmprestimoModel> emprestimoModel, ClienteDto clienteRequestDto) {
         return EmprestimoResponseDto
                 .builder()
                 .codigoSolicitacao(UUID.randomUUID())
                 .dataSolicitacao(LocalDateTime.now())
                 .cliente(clienteRequestDto)
-                .emprestimos(toProdutoEmprestimoDto(emprestimoModels))
+                .emprestimos(toProdutoEmprestimoDto(emprestimoModel))
                 .build();
     }
 
     public ProdutoEmprestimoDto toProdutoEmprestimoDto(OfertaEmprestimoModel emprestimoModel) {
         return ProdutoEmprestimoDto
                 .builder()
+                .numeroTipoEmprestimo(UUID.randomUUID().toString())
                 .tipoEmprestimo(emprestimoModel.getTipoEmprestimo().toString())
                 .taxaJuros(emprestimoModel.getTaxaJuros().getTaxa())
                 .build();

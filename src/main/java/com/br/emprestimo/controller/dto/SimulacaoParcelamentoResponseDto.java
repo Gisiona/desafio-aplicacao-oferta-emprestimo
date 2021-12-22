@@ -26,7 +26,7 @@ public class SimulacaoParcelamentoResponseDto {
     private ClienteDto cliente;
 
     @JsonProperty("tipo_emprestimo")
-    private String tipoEmprestimo;
+    private ProdutoEmprestimoDto tipoEmprestimo;
 
     @JsonProperty("valor_total_emprestimo_solicitado")
     double valorEmprestimoSolicitado;

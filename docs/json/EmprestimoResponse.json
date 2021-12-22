@@ -11,6 +11,7 @@
   },
   "produtos_emprestimo_disponivel": [
     {
+      "numero_tipo_emprestimo": "d729ab8f-4256-4565-9f84-75e8d4607e83",
       "tipo_emprestimo": "EMPRESTIMO_PESSOAL",
       "taxa": 4.0
     }

@@ -1,9 +1,6 @@
 package com.br.emprestimo.controller.api;
 
-import com.br.emprestimo.controller.dto.SolicitacaoEmprestimoRequestDto;
-import com.br.emprestimo.controller.dto.EmprestimoResponseDto;
-import com.br.emprestimo.controller.dto.SimulacaoParcelamentoRequestDto;
-import com.br.emprestimo.controller.dto.SimulacaoParcelamentoResponseDto;
+import com.br.emprestimo.controller.dto.*;
 import com.br.emprestimo.controller.mapper.ClienteMapper;
 import com.br.emprestimo.controller.mapper.EmprestimoMapper;
 import com.br.emprestimo.model.OfertaEmprestimoModel;
@@ -32,7 +29,7 @@ public class EmprestimoController {
     SimulacaoParcelamentoServiceImpl simulacaoParcelamentoService;
     private final ClienteMapper clienteMapper;
     private final EmprestimoMapper emprestimoMapper;
-    private static final String BASE_URL = "/emprestimos/v1/ofertas_produto_disponivel/";
+    private static final String BASE_URL = "/emprestimos/v1";
 
     @Autowired
     public EmprestimoController(OfertaProdutoEmprestimoServiceImpl emprestimoService, ClienteMapper clienteMapper, EmprestimoMapper emprestimoMapper){
@@ -51,7 +48,7 @@ public class EmprestimoController {
 
         log.info("Emprestimo Disponivel: {}", emprestimoResponseDto);
 
-        HttpHeaders headers = getHttpHeaders(emprestimoResponseDto);
+        HttpHeaders headers = getHttpHeaders(BASE_URL + "/ofertas_produto_disponivel/" + (emprestimoResponseDto != null ? emprestimoResponseDto.getCodigoSolicitacao() : 0));
 
         return new ResponseEntity<>(emprestimoResponseDto, headers, HttpStatus.OK);
     }
@@ -60,8 +57,6 @@ public class EmprestimoController {
     @PostMapping("/simulacoes_parcelamento")
     public ResponseEntity<SimulacaoParcelamentoResponseDto> simulacaoParcelamento(@RequestBody @Valid SimulacaoParcelamentoRequestDto simulacaoParcelamentoRequestDto) {
         log.info("Emprestimo Solicitado: {}", simulacaoParcelamentoRequestDto);
-
-       HttpHeaders headers = getHttpHeaders(null);
 
         SimulacaoParcelamentoResponseDto simulacaoParcelamentoResponseDto = SimulacaoParcelamentoResponseDto
                 .builder()
@@ -73,13 +68,15 @@ public class EmprestimoController {
                 .valorEmprestimoSolicitado(simulacaoParcelamentoRequestDto.getValorSolicitado())
                 .build();
 
-        return new ResponseEntity<>(simulacaoParcelamentoResponseDto, null, HttpStatus.CREATED);
+        HttpHeaders headers = getHttpHeaders(BASE_URL + "/simulacoes_parcelamento/" + simulacaoParcelamentoResponseDto.getNumeroSolicitacaoEmprestimo());
+
+        return new ResponseEntity<>(simulacaoParcelamentoResponseDto, headers, HttpStatus.CREATED);
     }
 
-    private HttpHeaders getHttpHeaders(EmprestimoResponseDto emprestimoResponseDto) {
+    private HttpHeaders getHttpHeaders(String url) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setLocation(URI.create(BASE_URL + (emprestimoResponseDto != null ? emprestimoResponseDto.getCodigoSolicitacao() : 0)));
+        headers.setLocation(URI.create(url));
         log.info("Header Controller: {}", headers);
         return headers;
     }
